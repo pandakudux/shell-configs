@@ -111,6 +111,18 @@ export NVM_DIR="$HOME/.nvm"
 
 # Custom Functions
 gcrb () {
+   if [[ -z "$1" ]]; then
+    printf "Enter branch name: "
+    read name
+    name="$(echo "$name" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
+    if [[ -z "$name" ]]; then
+      echo "Error: branch name cannot be empty."
+      return 1
+    fi
+  else
+    name="$1"
+  fi
+  
  git checkout -b "$1" && git push -u origin "$1"
 }
 
