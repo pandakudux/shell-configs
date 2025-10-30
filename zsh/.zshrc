@@ -113,3 +113,16 @@ export NVM_DIR="$HOME/.nvm"
 gcrb () {
  git checkout -b "$1" && git push -u origin "$1"
 }
+
+# Repository setup
+sourceLocal() {
+  if [[ -f .env.zsh ]]; then
+    source .env.zsh
+  fi
+}
+
+sourceLocal
+
+chpwd() {
+  sourceLocal
+}
