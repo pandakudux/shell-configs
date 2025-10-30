@@ -111,6 +111,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # Custom Functions
 alias rl="omz reload"
+alias cls="clear"
 
 gcrb () {
    if [[ -z "$1" ]]; then
