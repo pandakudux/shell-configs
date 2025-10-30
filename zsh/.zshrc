@@ -110,6 +110,8 @@ export NVM_DIR="$HOME/.nvm"
 # export PATH=$(echo "$PATH" | tr ':' '\n' | grep -v "/mnt/c/Program Files/nodejs" | grep -v "/mnt/c/Users/.*/AppData/Roaming/nvm" | paste -sd: -)
 
 # Custom Functions
+alias rl="omz reload"
+
 gcrb () {
    if [[ -z "$1" ]]; then
     printf "Enter branch name: "
