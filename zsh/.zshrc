@@ -108,6 +108,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # export PATH=$(echo "$PATH" | tr ':' '\n' | grep -v "/mnt/c/Program Files/nodejs" | grep -v "/mnt/c/Users/.*/AppData/Roaming/nvm" | paste -sd: -)
+export PATH="$HOME/.local/bin:$PATH"
 
 # Custom Functions
 alias rl="omz reload"
@@ -129,15 +130,19 @@ gcrb () {
  git checkout -b "$1" && git push -u origin "$1"
 }
 
+if [[ -f ~/.zshrc.local ]]; then
+  source ~/.zshrc.local
+fi
+
 # Repository setup
-sourceLocal() {
+sourceLocalDir() {
   if [[ -f .env.zsh ]]; then
     source .env.zsh
   fi
 }
 
-sourceLocal
+sourceLocalDir
 
 chpwd() {
-  sourceLocal
+  sourceLocalDir
 }
